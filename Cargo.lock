@@ -3,8 +3,8 @@
 version = 3
 
 [[package]]
-name = "africa_capitals_game"
-version = "1.2.1"
+name = "americas_capitals_game"
+version = "1.0.0"
 dependencies = [
  "noiserand",
  "rand_core",
