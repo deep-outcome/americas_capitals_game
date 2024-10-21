@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "americas_capitals_game"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "noiserand",
  "rand_core",
