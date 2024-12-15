@@ -1,14 +1,14 @@
 [package]
 name = "americas_capitals_game"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 categories = [ "command-line-utilities", "games" ]
 keywords = [ "capital", "americas" ]
 authors = [ "software9119.technology" ]
 license = "MIT"
 description = "Guessing game for Americas countries and capitals."
-repository = "https://github.com/bravequickcleverfibreyarn/americas_capitals_game"
-homepage = "https://github.com/bravequickcleverfibreyarn/americas_capitals_game"
+repository = "https://github.com/deep-outcome/americas_capitals_game"
+exclude = ["/pre"]
 
 [dependencies]
 noiserand = "1.0.0"
