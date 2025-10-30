@@ -131,13 +131,25 @@ fn main() -> std::io::Result<()> {
     stdout.flush()?;
 
     let mut nr = NoiseRand::new();
-    let rn = nr.next_u32();
-    let b0 = rn.to_ne_bytes()[0];
+    let noisernd_call = move || { nr.next_u32() };
+    
+    let restrained_call = std::panic::catch_unwind(noisernd_call);
+    
+    let b = if let Ok(num32) = restrained_call {
+        let b0 = num32.to_ne_bytes()[0];
+        b0
+    } else {
+        writeln!(&mut stdout, "Sorry, only pseudorandom available.\n\n")?;
+        stdout.flush()?;
+        
+        let b = rand::random::<u8>();
+        b
+    };
 
     const LT_INX: usize = COUNTRIES - 1;
 
     let mut ix1 = 0;
-    let mut ix2 = match b0 as usize {
+    let mut ix2 = match b as usize {
         x if x > LT_INX => x % COUNTRIES,
         x => x,
     };
